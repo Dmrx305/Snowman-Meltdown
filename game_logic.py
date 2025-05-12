@@ -29,7 +29,7 @@ def play_game():
     guessed_letters = []
     mistakes = 0
 
-    print("Welcome to Snowman Meltdown!")
+    print("\nWelcome to Snowman Meltdown!")
 
     while True:
         display_game_state(mistakes, secret_word, guessed_letters)
@@ -41,6 +41,14 @@ def play_game():
         guess = input("Guess a letter: ").lower()
         print("You guessed:", guess)
 
+        if not guess.isalpha() or len(guess) != 1:
+            print("Please enter a single valid letter.")
+            continue
+
+        if guess in guessed_letters:
+            print("You already guessed that letter.")
+            continue
+
         if guess in secret_word:
             guessed_letters.append(guess)
         if guess not in secret_word:
@@ -48,3 +56,9 @@ def play_game():
             if mistakes == 3:
                 print(f"Game Over! The secret word was {secret_word}")
                 break
+
+    replay = input("Would you like to play again? (y/n): ").lower()
+    if replay == "n":
+        print("Thank you for playing!")
+    elif replay == "y":
+        play_game()
