@@ -1,13 +1,12 @@
 import random
-import game_logic
+from ascii_art import STAGES
 
 
 # List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
-"""
 def get_random_word():
-    Selects a random word from the list.
+    """Selects a random word from the list."""
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
@@ -36,8 +35,4 @@ def play_game():
 
     # Prompt user for one guess (logic to be enhanced later)
     guess = input("Guess a letter: ").lower()
-    print("You guessed:", guess)"""
-
-
-if __name__ == "__main__":
-    game_logic.play_game()
+    print("You guessed:", guess)
