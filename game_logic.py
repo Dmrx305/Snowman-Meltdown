@@ -1,8 +1,6 @@
 import random
 from ascii_art import STAGES
 
-
-# List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 def get_random_word():
@@ -11,9 +9,8 @@ def get_random_word():
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
-    # Display the snowman stage for the current number of mistakes.
+    """displaying the state of the game to the user"""
     print(STAGES[mistakes])
-    # Build a display version of the secret word.
     display_word = ""
     for letter in secret_word:
         if letter in guessed_letters:
@@ -25,6 +22,7 @@ def display_game_state(mistakes, secret_word, guessed_letters):
 
 
 def play_game():
+    """the main game loop and functionality of the game"""
     secret_word = get_random_word()
     guessed_letters = []
     mistakes = 0
